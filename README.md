@@ -18,7 +18,7 @@ git clone https://github.com/dalefugier/InstantMeshes
 4. Press <kbd>F7</kbd>, or click *Build > Build Solution*  to build the solution.
 
 ## License
-This source code is licensed under the [MIT License](https://github.com/mcneel/CreateQuadMesh/blob/master/LICENSE).
+This source code is licensed under the [MIT License](https://github.com/dalefugier/InstantMeshes/blob/master/LICENSE).
 
 [Instant Meshes](https://github.com/wjakob/instant-meshes/blob/master/LICENSE.txt) has its own separate license agreement.
 
