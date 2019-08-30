@@ -1,5 +1,7 @@
 # InstantMeshes
+
 <img width="170" height="166" src="https://github.com/wjakob/instant-meshes/raw/master/resources/icon.png">
+
 Sample Grasshopper for Windows plug-in that uses the [Instant Meshes](https://github.com/wjakob/instant-meshes) open source meshing utility.
 
 ## Prerequisites
