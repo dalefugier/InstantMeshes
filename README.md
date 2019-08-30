@@ -6,8 +6,8 @@ Sample Grasshopper for Windows plug-in that uses the open source [Instant Meshes
 
 The following tools are required to build InstantMeshes:
 
-- [Microsoft Visual Studio 2017](https://visualstudio.microsoft.com/). Visual Studio 2017 comes in three editions: Community (free), Professional, and Enterprise. All of these editions will work.
-- [Rhino 6 for Windows](https://www.rhino3d.com/).
+- [Microsoft Visual Studio](https://visualstudio.microsoft.com/)
+- [Rhino 6 for Windows](https://www.rhino3d.com/)
 
 ##  Compiling
 
