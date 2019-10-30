@@ -19,9 +19,10 @@ namespace InstantMeshes
         return icon.ToBitmap();
       }
     }
-    public override string Description => "Field-aligned mesh generator";
+    public override string Description => "Field-aligned mesh generator for Grasshopper®";
     public override Guid Id => new Guid("06cbea6f-9c7a-46e1-b0e2-fc0f114ecfd0");
-    public override string AuthorName => "Wenzel Jakob, Daniele Panozzo, Marco Tarini, and Olga Sorkine-Hornung";
-    public override string AuthorContact => "https://github.com/wjakob/instant-meshes";
+    public override string AuthorName => "Robert McNeel & Associates";
+    public override string AuthorContact => "https://github.com/dalefugier/InstantMeshes";
+    public override string Version => "1.0.0";
   }
 }
