@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Grasshopper;
+using Grasshopper.Kernel;
+using Rhino.Geometry;
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Reflection;
 using System.Threading;
-using Grasshopper;
-using Grasshopper.Kernel;
-using Rhino.Geometry;
 
 namespace InstantMeshes
 {
@@ -40,14 +40,14 @@ namespace InstantMeshes
     {
       #region Process input
 
-      var mesh = new Mesh();
-      var target_face_count = 1000;
-      var smooth_iterations = 2;
-      var mesh_format = 2;
-      var extrinsic = true;
-      var align_boundaries = true;
-      var sharp_creases = true;
-      var crease_angle = 90.0;
+      Mesh mesh = new Mesh();
+      int target_face_count = 1000;
+      int smooth_iterations = 2;
+      int mesh_format = 2;
+      bool extrinsic = true;
+      bool align_boundaries = true;
+      bool sharp_creases = true;
+      double crease_angle = 90.0;
 
       if (!access.GetData(0, ref mesh)) return;
       if (!access.GetData(1, ref target_face_count)) return;
@@ -79,23 +79,23 @@ namespace InstantMeshes
 
       #region Setup paths
 
-      
-      var gha_path = AssemblyDirectory;
-      var im_path = Path.Combine(gha_path, "InstantMeshes.exe");
+
+      string gha_path = AssemblyDirectory;
+      string im_path = Path.Combine(gha_path, "InstantMeshes.exe");
       if (!File.Exists(im_path))
       {
         AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "InstantMeshes.exe not found");
         return;
       }
 
-      var tmp_path = Path.GetTempPath();
-      var guid = Guid.NewGuid();
+      string tmp_path = Path.GetTempPath();
+      Guid guid = Guid.NewGuid();
 
-      var temp_obj = Path.Combine(tmp_path, $"input{guid}.obj");
+      string temp_obj = Path.Combine(tmp_path, $"input{guid}.obj");
       if (File.Exists(temp_obj))
         File.Delete(temp_obj);
 
-      var temp_output_obj = Path.Combine(tmp_path, $"output{guid}.obj");
+      string temp_output_obj = Path.Combine(tmp_path, $"output{guid}.obj");
       if (File.Exists(temp_output_obj))
         File.Delete(temp_output_obj);
 
@@ -106,7 +106,7 @@ namespace InstantMeshes
 
       #region Configure and run InstantMeshes
 
-      var mx = 2;
+      int mx = 2;
       if (mesh_format == 0)
         mx = 6;
       else if (mesh_format == 1)
@@ -114,19 +114,19 @@ namespace InstantMeshes
       else if (mesh_format == 2)
         mx = 4;
 
-      var my = 4;
+      int my = 4;
       if (mesh_format == 0)
         my = 6;
       else if (mesh_format == 1 || mesh_format == 2)
         my = 4;
 
-      var b = align_boundaries == true ? "-b" : string.Empty;
-      var i = extrinsic == true ? string.Empty : "-i";
-      var c = sharp_creases == true ? $"-c {crease_angle}" : string.Empty;
+      string b = align_boundaries == true ? "-b" : string.Empty;
+      string i = extrinsic == true ? string.Empty : "-i";
+      string c = sharp_creases == true ? $"-c {crease_angle}" : string.Empty;
 
-      var args = $"\"{temp_obj}\" -f {target_face_count} -p {my} -r {mx} {i} {c} {b} -S {smooth_iterations} -o \"{temp_output_obj}\"";
+      string args = $"\"{temp_obj}\" -f {target_face_count} -p {my} -r {mx} {i} {c} {b} -S {smooth_iterations} -o \"{temp_output_obj}\"";
 
-      var start_info = new ProcessStartInfo()
+      ProcessStartInfo start_info = new ProcessStartInfo()
       {
         FileName = im_path,
         Arguments = args,
@@ -137,7 +137,7 @@ namespace InstantMeshes
         CreateNoWindow = true
       };
 
-      var process = new Process
+      Process process = new Process
       {
         StartInfo = start_info,
         EnableRaisingEvents = true
@@ -153,8 +153,8 @@ namespace InstantMeshes
 
       }
 
-      var s_out = process.StandardOutput;
-      var s_err = process.StandardError;
+      StreamReader s_out = process.StandardOutput;
+      StreamReader s_err = process.StandardError;
       try
       {
         string str;
@@ -185,14 +185,14 @@ namespace InstantMeshes
         return;
       }
 
-      var retries = 0;
+      int retries = 0;
       while (IsFileLocked(new FileInfo(temp_output_obj)) || retries >= 4)
       {
         Thread.Sleep(500);
         retries++;
       }
 
-      var imported_mesh = FileObj.Read(temp_output_obj);
+      Mesh imported_mesh = FileObj.Read(temp_output_obj);
       if (imported_mesh == null)
       {
         AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "An invalid mesh was returned from InstantMeshes");
@@ -221,7 +221,7 @@ namespace InstantMeshes
     {
       get
       {
-        var info = Instances.ComponentServer.FindAssemblyByObject(ComponentGuid);
+        GH_AssemblyInfo info = Instances.ComponentServer.FindAssemblyByObject(ComponentGuid);
         return (null != info) ? Path.GetDirectoryName(info.Location) : null;
       }
     }
@@ -254,10 +254,10 @@ namespace InstantMeshes
     {
       get
       {
-        const string resource = "InstantMeshes.InstantMeshes.ico";
-        var size = new Size(24, 24);
-        var assembly = Assembly.GetExecutingAssembly();
-        var icon = Rhino.UI.DrawingUtilities.IconFromResource(resource, size, assembly);
+        const string resource = "InstantMeshes.Resources.InstantMeshes.ico";
+        Size size = new Size(24, 24);
+        Assembly assembly = Assembly.GetExecutingAssembly();
+        Icon icon = Rhino.UI.DrawingUtilities.IconFromResource(resource, size, assembly);
         return icon.ToBitmap();
       }
     }

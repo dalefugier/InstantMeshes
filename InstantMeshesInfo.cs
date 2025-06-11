@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Grasshopper.Kernel;
+using System;
 using System.Drawing;
 using System.Reflection;
-using Grasshopper.Kernel;
 
 namespace InstantMeshes
 {
@@ -12,10 +12,10 @@ namespace InstantMeshes
     {
       get
       {
-        const string resource = "InstantMeshes.InstantMeshes.ico";
-        var size = new Size(24, 24);
-        var assembly = Assembly.GetExecutingAssembly();
-        var icon = Rhino.UI.DrawingUtilities.IconFromResource(resource, size, assembly);
+        const string resource = "InstantMeshes.Resources.InstantMeshes.ico";
+        Size size = new Size(24, 24);
+        Assembly assembly = Assembly.GetExecutingAssembly();
+        Icon icon = Rhino.UI.DrawingUtilities.IconFromResource(resource, size, assembly);
         return icon.ToBitmap();
       }
     }
@@ -23,6 +23,6 @@ namespace InstantMeshes
     public override Guid Id => new Guid("06cbea6f-9c7a-46e1-b0e2-fc0f114ecfd0");
     public override string AuthorName => "Robert McNeel & Associates";
     public override string AuthorContact => "https://github.com/dalefugier/InstantMeshes";
-    public override string Version => "1.0.0";
+    public override string Version => "8.19.25132.1001";
   }
 }

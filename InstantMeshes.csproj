@@ -1,108 +1,60 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{416E37E9-85BF-439C-992F-6BAC1AB72EBE}</ProjectGuid>
+    <TargetFrameworks>net7.0;net48</TargetFrameworks>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <NoWarn>NU1701</NoWarn>
+    <TargetExt>.gha</TargetExt>
+    <OutputPath>.\bin\</OutputPath>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>InstantMeshes</RootNamespace>
-    <AssemblyName>InstantMeshes</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>C:\Users\Dale\AppData\Roaming\Grasshopper\Libraries\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="Eto, Version=2.5.0.0, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
-      <HintPath>packages\RhinoCommon.6.17.19235.15041\lib\net45\Eto.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="GH_IO, Version=6.17.19235.15040, Culture=neutral, PublicKeyToken=6a29997d2e6b4f97, processorArchitecture=MSIL">
-      <HintPath>packages\Grasshopper.6.17.19235.15041\lib\net45\GH_IO.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Grasshopper, Version=6.17.19235.15040, Culture=neutral, PublicKeyToken=dda4f5ec2cd80803, processorArchitecture=MSIL">
-      <HintPath>packages\Grasshopper.6.17.19235.15041\lib\net45\Grasshopper.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Rhino.UI, Version=6.17.19235.15040, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
-      <HintPath>packages\RhinoCommon.6.17.19235.15041\lib\net45\Rhino.UI.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="RhinoCommon, Version=6.17.19235.15040, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
-      <HintPath>packages\RhinoCommon.6.17.19235.15041\lib\net45\RhinoCommon.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="FileObj.cs" />
-    <Compile Include="InstantMeshesComponent.cs" />
-    <Compile Include="InstantMeshesInfo.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="InstantMeshes.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
   <PropertyGroup>
-    <PostBuildEvent>Copy "$(TargetPath)" "$(TargetDir)$(ProjectName).gha"
-Erase "$(TargetPath)"
-Copy "$(ProjectDir)\lib\*.*" "$(TargetDir)"</PostBuildEvent>
+    <Company>Robert McNeel &amp; Associates</Company>
+    <Copyright>Copyright © 2013-2025, Robert McNeel &amp; Associates</Copyright>
+    <Product>InstantMeshes</Product>
+    <Description>Field-aligned mesh generator for Grasshopper®</Description>
+    <Version>8.19.25132.1001</Version>
   </PropertyGroup>
-  <PropertyGroup>
-    <FallbackCulture>en-US</FallbackCulture>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <StartProgram>C:\Program Files\Rhino 6\System\Rhino.exe</StartProgram>
-    <StartArguments>
-    </StartArguments>
-    <StartAction>Program</StartAction>
-  </PropertyGroup>
-  <Import Project="packages\RhinoCommon.6.17.19235.15041\build\net45\RhinoCommon.targets" Condition="Exists('packages\RhinoCommon.6.17.19235.15041\build\net45\RhinoCommon.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\**\*" />
+    <PackageReference Include="Grasshopper" Version="8.19.25132.1001" />
+    <PackageReference Include="RhinoCommon" Version="8.19.25132.1001" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ContentWithTargetPath Include="lib\InstantMeshes.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>InstantMeshes.exe</TargetPath>
+    </ContentWithTargetPath>
+    <None Include="lib\InstantMeshes.exe" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ContentWithTargetPath Include="lib\InstantMeshes LICENSE.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>InstantMeshes LICENSE.txt</TargetPath>
+    </ContentWithTargetPath>
+    <None Include="lib\InstantMeshes LICENSE.txt" />
+  </ItemGroup>
+
+  <Target Name="BuildYakPackage" AfterTargets="DispatchToInnerBuilds">
     <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+      <YakExecutable Condition="$(YakExecutable) == '' and $([MSBuild]::IsOSPlatform(windows)) and Exists('C:\Program Files\Rhino 8\System\Yak.exe')">C:\Program Files\Rhino 8\System\Yak.exe</YakExecutable>
+      <BuildYakPackage Condition="$(BuildYakPackage) == '' and $(YakExecutable) != '' and Exists($(YakExecutable))">True</BuildYakPackage>
     </PropertyGroup>
-    <Error Condition="!Exists('packages\RhinoCommon.6.17.19235.15041\build\net45\RhinoCommon.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\RhinoCommon.6.17.19235.15041\build\net45\RhinoCommon.targets'))" />
-    <Error Condition="!Exists('packages\Grasshopper.6.17.19235.15041\build\net45\Grasshopper.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Grasshopper.6.17.19235.15041\build\net45\Grasshopper.targets'))" />
+
+    <Warning Text="Could not find Yak executable" Condition="$(YakExecutable) == ''" />
+
+    <ItemGroup>
+      <YakPackagesToDelete Include="$(OutputPath)\*.yak;$(OutputPath)\**\manifest.yml" />
+    </ItemGroup>
+
+    <Delete Files="@(YakPackagesToDelete)" />
+
+    <Exec Command="&quot;$(YakExecutable)&quot; spec" WorkingDirectory="$(OutputPath)" Condition="$(BuildYakPackage) == 'True'" />
+    <Exec Command="&quot;$(YakExecutable)&quot; build" WorkingDirectory="$(OutputPath)" Condition="$(BuildYakPackage) == 'True'" />
+
   </Target>
-  <Import Project="packages\Grasshopper.6.17.19235.15041\build\net45\Grasshopper.targets" Condition="Exists('packages\Grasshopper.6.17.19235.15041\build\net45\Grasshopper.targets')" />
+
 </Project>

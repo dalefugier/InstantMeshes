@@ -9,7 +9,7 @@ Sample Grasshopper for Windows plug-in that uses the [Instant Meshes](https://gi
 The following tools are required to build InstantMeshes:
 
 - [Microsoft Visual Studio](https://visualstudio.microsoft.com/)
-- [Rhino 6 for Windows](https://www.rhino3d.com/)
+- [Rhino 8 for Windows](https://www.rhino3d.com/)
 
 ##  Compiling
 
