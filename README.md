@@ -4,6 +4,8 @@
 
 Sample Grasshopper for Windows plug-in that uses the [Instant Meshes](https://github.com/wjakob/instant-meshes) open source meshing utility.
 
+InstantMeshes is available in Rhino via the [PackageManager](https://www.rhino3d.com/features/package-manager/).
+
 ## Prerequisites
 
 The following tools are required to build InstantMeshes:
