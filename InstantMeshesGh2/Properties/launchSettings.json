@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Rhino 9 (net10.0)": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Program Files\\Rhino 9\\System\\Rhino.exe",
+      "commandLineArgs": "/netcore /runscript=\"_GH2\"",
+      "environmentVariables": {
+        "RHINO_PACKAGE_DIRS": "$(TargetDir)"
+      }
+    }
+  }
+}

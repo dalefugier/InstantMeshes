@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <NoWarn>NU1701</NoWarn>
+    <AssemblyName>InstantMeshes</AssemblyName>
+    <RootNamespace>InstantMeshes</RootNamespace>
+    <TargetExt>.gha</TargetExt>
+    <OutputPath>..\bin\</OutputPath>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Company>Dale Fugier</Company>
+    <Copyright>Copyright © 2013-2026, Dale Fugier</Copyright>
+    <Product>InstantMeshes</Product>
+    <Description>Field-aligned mesh generator for Grasshopper</Description>
+    <Version>9.0.26300.9401</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\Resources\InstantMeshes.ico" LogicalName="InstantMeshes.Resources.InstantMeshes.ico" />
+    <PackageReference Include="Grasshopper" Version="9.0.26300.9401" ExcludeAssets="runtime" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InstantMeshesCommon\InstantMeshesCommon.csproj" />
+  </ItemGroup>
+
+</Project>

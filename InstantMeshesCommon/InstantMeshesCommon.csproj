@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <OutputPath>..\bin\</OutputPath>
+    <OutputType>Library</OutputType>
+    <NoWarn>NU1701</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Company>Dale Fugier</Company>
+    <Copyright>Copyright © 2013-2026, Dale Fugier</Copyright>
+    <Product>InstantMeshes</Product>
+    <Description>InstantMeshes Core Library</Description>
+    <Version>9.0.26300.9401</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="RhinoCommon" Version="9.0.26300.9401" ExcludeAssets="runtime" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ContentWithTargetPath Include="..\lib\InstantMeshes.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>InstantMeshes.exe</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="..\lib\InstantMeshes LICENSE.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>InstantMeshes LICENSE.txt</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <NoWarn>NU1701</NoWarn>
+    <TargetExt>.rhp</TargetExt>
+    <OutputPath>..\bin\</OutputPath>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Company>Dale Fugier</Company>
+    <Copyright>Copyright © 2013-2026, Dale Fugier</Copyright>
+    <Product>InstantMeshes</Product>
+    <AssemblyTitle>InstantMeshes</AssemblyTitle>
+    <Description>Field-aligned mesh generator for Grasshopper 2</Description>
+    <Version>9.0.26300.9401</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\Resources\icon.png" LogicalName="InstantMeshesGh2.icon.png" />
+    <PackageReference Include="Grasshopper2" Version="9.0.26300.9401" ExcludeAssets="runtime" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InstantMeshesCommon\InstantMeshesCommon.csproj" />
+  </ItemGroup>
+
+</Project>
