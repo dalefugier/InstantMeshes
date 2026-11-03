@@ -12,7 +12,7 @@
 
   <PropertyGroup>
     <Company>Dale Fugier</Company>
-    <Copyright>Copyright © 2013-2026, Dale Fugier</Copyright>
+    <Copyright>Copyright © 2013-2026, Robert McNeel &amp; Associates</Copyright>
     <Product>InstantMeshes</Product>
     <Description>Field-aligned mesh generator for Grasshopper</Description>
     <Version>9.0.26300.9401</Version>
