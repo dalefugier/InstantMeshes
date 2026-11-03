@@ -22,7 +22,7 @@ namespace InstantMeshesGh2.Components
     Quads4 = (int)InstantMeshesFormat.Quads4
   }
 
-  [IoId("892f4edc-2466-4eb8-af3f-2985fe379fbe"), Grasshopper2.Author("Dale Fugier")]
+  [IoId("892f4edc-2466-4eb8-af3f-2985fe379fbe"), Grasshopper2.Author("Robert McNeel &amp; Associates")]
   public sealed class InstantMeshesComponent : Component
   {
     /// <summary>
